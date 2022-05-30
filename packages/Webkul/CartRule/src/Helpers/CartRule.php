@@ -245,7 +245,7 @@ class CartRule
                         break;
                     }
 
-                    $buyAndDiscountQty = $rule->discount_step + $rule->discount_amount;
+                    $buyAndDiscountQty = ceil($rule->discount_step + $rule->discount_amount);
 
                     $qtyPeriod = floor($quantity / $buyAndDiscountQty);
 

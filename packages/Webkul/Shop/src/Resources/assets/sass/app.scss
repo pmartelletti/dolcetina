@@ -20,7 +20,8 @@ body {
 }
 
 * {
-    font-family: $font-montserrat;
+    //font-family: $font-montserrat;
+    font-family: $font-karla;
 }
 
 *::-webkit-input-placeholder {
@@ -4957,8 +4958,8 @@ body {
 }
 
 .icon-position {
-    margin-left: -30px; 
-    cursor: pointer; 
+    margin-left: -30px;
+    cursor: pointer;
     vertical-align: sub;
     position: absolute;
     margin-top: 15px;

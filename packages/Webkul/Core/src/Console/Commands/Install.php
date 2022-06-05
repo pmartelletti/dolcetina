@@ -53,15 +53,15 @@ class Install extends Command
         $result = $this->call('db:seed');
         $this->info($result);
 
-//        // running `php artisan bagisto:publish --force`
-//        $this->warn('Step: Publishing assets and configurations...');
-//        $result = $this->call('bagisto:publish', ['--force' => true]);
-//        $this->info($result);
-//
-//        // running `php artisan storage:link`
-//        $this->warn('Step: Linking storage directory...');
-//        $result = $this->call('storage:link');
-//        $this->info($result);
+        // running `php artisan bagisto:publish --force`
+        $this->warn('Step: Publishing assets and configurations...');
+        $result = $this->call('bagisto:publish', ['--force' => true]);
+        $this->info($result);
+
+        // running `php artisan storage:link`
+        $this->warn('Step: Linking storage directory...');
+        $result = $this->call('storage:link');
+        $this->info($result);
 
         // optimizing stuffs
         $this->warn('Step: Optimizing...');

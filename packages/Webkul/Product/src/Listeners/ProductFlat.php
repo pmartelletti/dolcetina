@@ -114,9 +114,9 @@ class ProductFlat
                     $table->dropColumn($attribute->code . '_label');
                 }
             });
-            
+
             $this->productFlatRepository->updateAttributeColumn( $attribute , $this );
-            
+
         }
     }
 
@@ -172,6 +172,7 @@ class ProductFlat
             $channels[] = core()->getDefaultChannelCode();
         }
 
+
         foreach (core()->getAllChannels() as $channel) {
             if (in_array($channel->code, $channels)) {
                 foreach ($channel->locales as $locale) {
@@ -222,7 +223,6 @@ class ProductFlat
                                 $productAttributeValue = $product->attribute_values()->where('attribute_id', $attribute->id)->first();
                             }
                         }
-
                         $productFlat->{$attribute->code} = $productAttributeValue[ProductAttributeValue::$attributeTypeFields[$attribute->type]] ?? null;
 
                         if ($attribute->type == 'select') {

@@ -233,7 +233,8 @@ h5 {
 
     &.btn-primary {
         background: $brand-color;
-        color: $white-color;
+        //color: $white-color;
+        color: #f7f5f3;
     }
 
     &.btn-black {
@@ -468,7 +469,7 @@ h5 {
                         color: $font-color;
                         display: block;
                     }
-    
+
                     &:hover {
                         color: $brand-color;
                     }
@@ -478,7 +479,7 @@ h5 {
                     a {
                         text-decoration: none;
                         color: rgba(58, 58, 58, 0.5);
-    
+
                         &:hover {
                             color: rgba(58, 58, 58, 0.5);
                         }

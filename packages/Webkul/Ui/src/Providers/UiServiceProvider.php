@@ -18,7 +18,7 @@ class UiServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../../publishable/assets' => public_path('vendor/webkul/ui/assets'),
-        ], 'public');
+        ], 'assets');
 
         $this->loadTranslationsFrom(__DIR__ . '/../Resources/lang', 'ui');
 

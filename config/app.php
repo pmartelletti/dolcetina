@@ -283,6 +283,7 @@ return [
         Webkul\Notification\Providers\NotificationServiceProvider::class,
         Webkul\Sitemap\Providers\SitemapServiceProvider::class,
         Wontonee\Stripe\Providers\StripeServiceProvider::class,
+        Webkul\TableRate\Providers\TableRateServiceProvider::class
     ],
 
     /*

@@ -41,6 +41,7 @@ trait ProvideExceptionHandler
      */
     public function checkRequiredActionKeys($action)
     {
+//        dd($action);
         $this->checkRequiredKeys($this->requiredActionKeys, $action, function ($missingKeys) {
             $message = 'Missing Keys: ' . implode(', ', $missingKeys);
 

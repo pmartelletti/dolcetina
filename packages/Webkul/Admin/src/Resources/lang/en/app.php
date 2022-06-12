@@ -544,10 +544,10 @@ return [
                 'bundle'                        => 'Bundle',
                 'downloadable'                  => 'Downloadable',
                 'grouped'                       => 'Grouped',
-                'virtual'                       => 'Virtual',            
+                'virtual'                       => 'Virtual',
                 'configurable'                  => 'Configurable',
 
-            ],            
+            ],
             'familiy'                       => 'Attribute Family',
             'sku'                           => 'SKU',
             'configurable-attributes'       => 'Configurable Attributes',
@@ -1668,4 +1668,5 @@ return [
             'processing' => 'Order Processing',
         ],
     ],
+    'stripe-apikey'                      => 'API Key',
 ];

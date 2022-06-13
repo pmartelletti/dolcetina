@@ -126,8 +126,8 @@ class ShippingRateController extends Controller
         if ( count($shippingRates) ) {
             foreach ($shippingRates as $shipping_rate) {
                 if (
-                    ($shipping_rate->weight_from <= $data['weight_from'] && $shipping_rate->weight_to <= $data['weight_from']) ||
-                    ($shipping_rate->weight_from <= $data['weight_to'] && $shipping_rate->weight_to <= $data['weight_to']) ||
+//                    ($shipping_rate->weight_from <= $data['weight_from'] && $shipping_rate->weight_to <= $data['weight_from']) ||
+//                    ($shipping_rate->weight_from <= $data['weight_to'] && $shipping_rate->weight_to <= $data['weight_to']) ||
                     ($shipping_rate->weight_from >= $data['weight_from'] && $shipping_rate->weight_from <= $data['weight_to']) ||
                     ($shipping_rate->weight_to >= $data['weight_from'] && $shipping_rate->weight_to <= $data['weight_to'])
                     ) {
@@ -352,8 +352,8 @@ class ShippingRateController extends Controller
                             if ( count($shippingRates) ) {
                                 foreach ($shippingRates as $shipping_rate) {
                                     if (
-                                        ($shipping_rate->weight_from <= $data['weight_from'] && $shipping_rate->weight_to <= $data['weight_from']) ||
-                                        ($shipping_rate->weight_from <= $data['weight_to'] && $shipping_rate->weight_to <= $data['weight_to']) ||
+//                                        ($shipping_rate->weight_from <= $data['weight_from'] && $shipping_rate->weight_to <= $data['weight_from']) ||
+//                                        ($shipping_rate->weight_from <= $data['weight_to'] && $shipping_rate->weight_to <= $data['weight_to']) ||
                                         ($shipping_rate->weight_from >= $data['weight_from'] && $shipping_rate->weight_from <= $data['weight_to']) ||
                                         ($shipping_rate->weight_to >= $data['weight_from'] && $shipping_rate->weight_to <= $data['weight_to'])
                                         ) {

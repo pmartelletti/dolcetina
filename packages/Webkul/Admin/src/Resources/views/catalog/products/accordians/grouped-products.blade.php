@@ -173,7 +173,7 @@
 
                     let self = this;
 
-                    this.$http.get ("{{ route('admin.catalog.products.search_simple_product') }}", {params: {query: this.search_term}})
+                    this.$http.get ("{{ route('admin.catalog.products.search_simple_product') }}", {params: {query: this.search_term, locale: '{{ request()->get('locale', 'es') }}'}})
                         .then (function(response) {
                             self.searched_results = response.data;
 

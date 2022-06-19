@@ -215,7 +215,10 @@ class ShippingHelper
             ->get();
 
 
-        if ( count($shippingRates) > 0 ) {
+        // we might want to show the "SuperSet rates" here, but based on weight instead of price.
+
+
+        if ( count($shippingRates) > 0 && $shippingAddress) {
             foreach ($shippingRates as $shippingRate) {
                 //Numeric Range
                 if ($shippingRate->is_zip_range == 0) {

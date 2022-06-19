@@ -46,6 +46,8 @@ class Grouped extends AbstractType
      */
     protected $isComposite = true;
 
+    protected $showQuantityBox = true;
+
     /**
      * Create a new product type instance.
      *
@@ -196,9 +198,7 @@ class Grouped extends AbstractType
             $html .= '<div class="sticker sale">' . trans('shop::app.products.sale') . '</div>';
         }
 
-        $html .= '<span class="price-label">' . trans('shop::app.products.starting-at') . '</span>'
-        . ' '
-        . '<span class="final-price">' . core()->currency($this->getMinimalPrice()) . '</span>';
+        $html .= '<span class="final-price">' . core()->currency($this->getMinimalPrice()) . '</span>';
 
         return $html;
     }

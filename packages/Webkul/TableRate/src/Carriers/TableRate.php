@@ -6,6 +6,7 @@ use Webkul\Checkout\Models\CartItem;
 use Webkul\Checkout\Models\CartShippingRate;
 use Webkul\Shipping\Carriers\AbstractShipping;
 use Webkul\Checkout\Facades\Cart;
+use Webkul\TableRate\Models\SuperSet;
 
 /**
  * Table Rate Shipping.
@@ -48,6 +49,7 @@ class TableRate extends AbstractShipping
         $object->carrier            = 'tablerate';
         $object->carrier_title      = $this->getConfigData('title');
         $object->method             = 'tablerate_' . $shippingCost['superset_code'];
+//        $object->method             = 'tablerate';// . $shippingCost['superset_code'];
         $object->method_title       = $superset_name;
         $object->method_description = $this->getConfigData('title') . ' - ' . $superset_name;
         $object->is_calculate_tax = $this->getConfigData('is_calculate_tax') ?: 0;
@@ -78,5 +80,14 @@ class TableRate extends AbstractShipping
     public function getServices()
     {
         return null;
+    }
+
+    public function getSuperSets($columns = ['*'])
+    {
+        return SuperSet::query()
+            ->select($columns)
+            ->where('status', true)
+            ->get()
+        ;
     }
 }

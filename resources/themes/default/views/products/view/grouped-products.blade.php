@@ -15,16 +15,17 @@
                                 <span class="name">
                                     {{ $groupedProduct->associated_product->name }}
 
-                                    @include ('shop::products.price', ['product' => $groupedProduct->associated_product])
+{{--                                    @include ('shop::products.price', ['product' => $groupedProduct->associated_product])--}}
                                 </span>
 
-                                <span class="qty">
-                                    <quantity-changer
-                                        :control-name="'qty[{{$groupedProduct->associated_product_id}}]'"
-                                        :validations="'required|numeric|min_value:0'"
-                                        quantity="{{ $groupedProduct->qty }}"
-                                        min-quantity="0">
-                                    </quantity-changer>
+                                <span class="qty" style="margin-right: 20px">
+                                    {{ $groupedProduct->qty }}
+{{--                                    <quantity-changer--}}
+{{--                                        :control-name="'qty[{{$groupedProduct->associated_product_id}}]'"--}}
+{{--                                        :validations="'required|numeric|min_value:0'"--}}
+{{--                                        quantity="{{ $groupedProduct->qty }}"--}}
+{{--                                        min-quantity="0">--}}
+{{--                                    </quantity-changer>--}}
                                 </span>
                             </li>
                         @endif

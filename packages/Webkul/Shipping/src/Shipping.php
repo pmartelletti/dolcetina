@@ -4,6 +4,7 @@ namespace Webkul\Shipping;
 
 use Illuminate\Support\Facades\Config;
 use Webkul\Checkout\Facades\Cart;
+use Webkul\TableRate\Carriers\TableRate;
 
 class Shipping
 {
@@ -124,16 +125,28 @@ class Shipping
         foreach (Config::get('carriers') as $shippingMethod) {
             $object = new $shippingMethod['class'];
 
-            if (! $object->isAvailable()) {
-                continue;
-            }
+            if ($object instanceof TableRate) {
+                $sets = $object->getSuperSets(['code', 'name']);
+                foreach ($sets as $set) {
+                    $methods[] = [
+                        'code'         => $object->getCode(),
+                        'method'       => $object->getCode() . "_" . $set->code,
+                        'method_title' => $set->name,
+                        'description'  => $object->getDescription()
+                    ];
+                }
+            } else {
+                if (! $object->isAvailable()) {
+                    continue;
+                }
 
-            $methods[] = [
-                'code'         => $object->getCode(),
-                'method'       => $object->getMethod(),
-                'method_title' => $object->getTitle(),
-                'description'  => $object->getDescription()
-            ];
+                $methods[] = [
+                    'code'         => $object->getCode(),
+                    'method'       => $object->getMethod(),
+                    'method_title' => $object->getTitle(),
+                    'description'  => $object->getDescription()
+                ];
+            }
         }
 
         return $methods;
@@ -148,6 +161,7 @@ class Shipping
     public function isMethodCodeExists($shippingMethodCode)
     {
         $activeShippingMethods = collect($this->getShippingMethods());
+//        dd($shippingMethodCode, $activeShippingMethods);
 
         return $activeShippingMethods->contains('method', $shippingMethodCode);
     }

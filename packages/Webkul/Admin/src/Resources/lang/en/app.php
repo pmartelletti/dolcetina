@@ -262,6 +262,7 @@ return [
         'file-name'        => 'File Name',
         'path'             => 'Path',
         'link-for-google'  => 'Link For Google',
+        'author'          => 'Author',
     ],
 
     'account' => [
@@ -1031,8 +1032,8 @@ return [
             'error-create'        => 'Customer address not created.',
         ],
 
-        'note' => [
-            'title'      => 'Add Note',
+        'notes' => [
+            'title'      => ':customer_name\'s Notes',
             'save-note'  => 'Save Note',
             'enter-note' => 'Enter Note',
             'help-title' => 'Add Note On This Customer',

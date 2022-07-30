@@ -1,14 +1,14 @@
 <?php
 return [
     'datagrid' => [
-        'actions' => 'Comportamiento',
+        'actions' => 'Acciones',
         'id'      => 'Las columnas de índice solo tienen un valor mayor que cero',
 
         'massaction' => [
             'mass-delete-confirm'     => '¿Realmente desea eliminar estos elementos seleccionados :resource?',
             'mass-update-status'      => '¿Realmente desea actualizar el estado de estos elementos seleccionados :resource?',
-            'delete'                  => '¿De verdad quieres eliminar esto :resource?',
-            'edit'                    => '¿De verdad quieres editar esto :resource?',
+            'delete'                  => '¿Estas seguro que quieres eliminar esto?',
+            'edit'                    => '¿De verdad quieres editar esto :resource ?',
             'delete-category-product' => 'Las categorías seleccionadas contienen productos. Al realizar esta acción, se eliminarán los productos relacionados. ¿De verdad quieres realizar esta acción?',
         ],
 

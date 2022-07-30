@@ -4,6 +4,7 @@ namespace Webkul\Admin\Http\Controllers\Customer;
 
 use Mail;
 use Webkul\Admin\DataGrids\CustomerDataGrid;
+use Webkul\Admin\DataGrids\CustomerNotesDataGrid;
 use Webkul\Admin\DataGrids\CustomerOrderDataGrid;
 use Webkul\Admin\DataGrids\CustomersInvoicesDataGrid;
 use Webkul\Admin\Http\Controllers\Controller;

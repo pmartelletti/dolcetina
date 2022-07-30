@@ -26,7 +26,7 @@
                     </div>
                 </tab>
 
-                <tab name="{{ __('admin::app.customers.customers.addresses') }}" :selected="false">                
+                <tab name="{{ __('admin::app.customers.customers.addresses') }}" :selected="false">
                     <div class="page-content">
                         <div class="page-content-button">
                             <a href="{{ route('admin.customer.addresses.create', ['id' => $customer->id]) }}" class="btn btn-lg btn-primary">
@@ -61,6 +61,20 @@
                     {!! view_render_event('bagisto.admin.customer.orders.list.after') !!}
                     </div>
                 </tab>
+
+                <tab name="{{ __('admin::app.customers.notes.title') }}" :selected="false">
+                    <div class="page-content">
+                        <div class="page-content-button">
+                            <a href="{{ route('admin.customer.notes.create', ['id' => $customer->id]) }}" class="btn btn-lg btn-primary">
+                                {{ __('admin::app.customers.notes.create-btn-title') }}
+                            </a>
+                        </div>
+
+                        <div class="page-content-datagrid">
+                            <datagrid-plus src="{{ route('admin.customer.notes.index', $customer->id) }}"></datagrid-plus>
+                        </div>
+                    </div>
+            </tab>
 
             {!! view_render_event('bagisto.admin.customer.edit.after', ['customer' => $customer]) !!}
         </tabs>

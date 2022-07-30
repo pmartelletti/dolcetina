@@ -48,7 +48,7 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
         'status',
         'is_verified',
         'is_suspended',
-        'notes',
+//        'notes',
     ];
 
     /**
@@ -279,5 +279,10 @@ class Customer extends Authenticatable implements CustomerContract, JWTSubject
     public function subscription()
     {
         return $this->hasOne(SubscribersListProxy::modelClass(), 'customer_id');
+    }
+
+    public function notes()
+    {
+        return $this->hasMany(CustomerNoteProxy::modelClass(), 'customer_id');
     }
 }

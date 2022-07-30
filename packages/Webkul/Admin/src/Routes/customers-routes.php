@@ -5,6 +5,7 @@ use Webkul\Admin\Http\Controllers\Customer\AddressController;
 use Webkul\Admin\Http\Controllers\Customer\CustomerController;
 use Webkul\Admin\Http\Controllers\Customer\CustomerGroupController;
 use Webkul\Product\Http\Controllers\ReviewController;
+use Webkul\Admin\Http\Controllers\Customer\CustomerNoteController;
 
 /**
  * Customers routes.
@@ -29,13 +30,14 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
         'view' => 'admin::customers.edit',
     ])->name('admin.customer.edit');
 
-    Route::get('customers/note/{id}', [CustomerController::class, 'createNote'])->defaults('_config', [
-        'view' => 'admin::customers.note',
-    ])->name('admin.customer.note.create');
-
-    Route::put('customers/note/{id}', [CustomerController::class, 'storeNote'])->defaults('_config', [
-        'redirect' => 'admin.customer.index',
-    ])->name('admin.customer.note.store');
+    // This is deprecated
+//    Route::get('customers/note/{id}', [CustomerController::class, 'createNote'])->defaults('_config', [
+//        'view' => 'admin::customers.note',
+//    ])->name('admin.customer.note.create');
+//
+//    Route::put('customers/note/{id}', [CustomerController::class, 'storeNote'])->defaults('_config', [
+//        'redirect' => 'admin.customer.index',
+//    ])->name('admin.customer.note.store');
 
     Route::put('customers/edit/{id}', [CustomerController::class, 'update'])->defaults('_config', [
         'redirect' => 'admin.customer.index',
@@ -83,6 +85,36 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => config('app.admin_ur
     Route::post('customers/{id}/addresses', [AddressController::class, 'massDestroy'])->defaults('_config', [
         'redirect' => 'admin.customer.addresses.index',
     ])->name('admin.customer.addresses.massdelete');
+
+    /**
+     * Customer's notes routes.
+     */
+    Route::get('customers/{id}/notes', [CustomerNoteController::class, 'index'])->defaults('_config', [
+        'view' => 'admin::customers.notes.index',
+    ])->name('admin.customer.notes.index');
+
+    Route::get('customers/{id}/notes/create', [CustomerNoteController::class, 'create'])->defaults('_config', [
+        'view' => 'admin::customers.notes.create',
+    ])->name('admin.customer.notes.create');
+
+    Route::post('customers/{id}/notes', [CustomerNoteController::class, 'store'])->defaults('_config', [
+        'redirect' => 'admin.customer.notes.index',
+    ])->name('admin.customer.notes.store');
+
+    Route::get('customers/notes/{id}/edit', [CustomerNoteController::class, 'edit'])
+        ->name('admin.customer.notes.edit');
+
+    Route::put('customers/{customer}/notes/{note}', [CustomerNoteController::class, 'update'])
+        ->name('admin.customer.notes.update');
+
+    Route::delete('customers/notes/{id}', [CustomerNoteController::class, 'destroy'])->defaults('_config', [
+        'redirect' => 'admin.customer.notes.index',
+    ])->name('admin.customer.notes.delete');
+
+//    Route::resource('customers.notes', CustomerNoteController::class)
+////        ->parameter('customer', 'id')
+//        ->parameters(['customer' => 'id'])
+//        ->names('admin.customer.notes');
 
     /**
      * Customer's reviews routes.

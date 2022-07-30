@@ -173,6 +173,8 @@ return [
             'no-resource'    => 'El recurso provisto es insuficiente para la acción',
         ],
 
+        'author'           => 'Autor',
+        'note'             => 'Nota',
         'id'               => 'ID',
         'status'           => 'Estado',
         'code'             => 'Código',
@@ -542,10 +544,10 @@ return [
                 'bundle'                        => 'pakaĵo',
                 'downloadable'                  => 'elŝutebla',
                 'grouped'                       => 'grupigitaj',
-                'virtual'                       => 'virtuala',            
+                'virtual'                       => 'virtuala',
                 'configurable'                  => 'agordebla',
 
-            ], 
+            ],
             'simple'                        => 'Simple',
             'configurable'                  => 'Configurable',
             'familiy'                       => 'Familia de atributos',
@@ -980,6 +982,13 @@ return [
         ],
     ],
 
+    'notes' => [
+        'title'      => 'Notas de :customer_name',
+        'save-note'  => 'Guardar Nota',
+        'enter-note' => 'Ingresar Note',
+        'help-title' => 'Agregar Note a este cliente'
+    ],
+
     'customers' => [
         'groups' => [
             'add-title'       => 'Agregar grupo',
@@ -1024,8 +1033,10 @@ return [
             'error-create'        => 'La dirección del cliente no fue creada.',
         ],
 
-        'note' => [
-            'title'      => 'Agregar nota',
+        'notes' => [
+            'create-btn-title'    => 'Agregar nota',
+            'title'               => 'Lista de notas de :customer_name',
+            'create-new-title'               => 'Agregar nota para :customer_name',
             'save-note'  => 'Guardar nota',
             'enter-note' => 'Ingresar nota',
             'help-title' => 'Agregar una nota a este cliente',

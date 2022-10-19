@@ -18,5 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Event::listen('bagisto.shop.customers.login_form_controls.before', function($viewRenderEventManager) {
             $viewRenderEventManager->addTemplate('sociallogin::shop.customers.session.social-links');
         });
+
+        Event::listen('bagisto.shop.customers.signup_form_controls.before', function($viewRenderEventManager) {
+            $viewRenderEventManager->addTemplate('sociallogin::shop.customers.session.social-links');
+        });
     }
 }

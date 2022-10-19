@@ -319,7 +319,7 @@
                 id="billing[phone]"
                 type="text"
                 name="billing[phone]"
-                v-validate="'required|numeric'"
+                v-validate="'required'"
                 v-model="address.billing.phone"
                 data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;"/>
 

@@ -3,6 +3,7 @@
     {{ __('shop::app.customer.signup-form.page-title') }}
 @endsection
 @section('content-wrapper')
+
 <div class="auth-content">
 
     <div class="sign-up-text">

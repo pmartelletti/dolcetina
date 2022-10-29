@@ -50,5 +50,4 @@
 
     {{ view_render_event('bagisto.shop.home.content.after') }}
 
-
 @endsection

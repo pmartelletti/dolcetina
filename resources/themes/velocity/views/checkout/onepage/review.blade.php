@@ -18,13 +18,25 @@
                         <div class="card-content">
                             <ul type="none">
                                 <li>
+                                    {{ $billingAddress->company_name ?? '' }}
+                                </li><br />
+                                <li>
                                     {{ $billingAddress->name }}
                                 </li><br />
                                 <li>
-                                    {{ $billingAddress->address1 }}, <br />{{ $billingAddress->state }}
+                                    {{ $billingAddress->address1 }}, <br />
                                 </li><br />
+
                                 <li>
-                                    {{ core()->country_name($billingAddress->country) }} {{ $billingAddress->postcode }}
+                                    {{ $billingAddress->postcode . " " . $billingAddress->city }}
+                                </li><br />
+
+                                <li>
+                                    {{ $billingAddress->state }}
+                                </li><br />
+
+                                <li>
+                                    {{ core()->country_name($billingAddress->country) }}
                                 </li><br />
 
                                 <li>
@@ -44,14 +56,26 @@
                         <div class="card-content">
                             <ul>
                                 <li>
+                                    {{ $shippingAddress->company_name ?? '' }}
+                                </li><br/>
+                                <li>
                                     {{ $shippingAddress->name }}
                                 </li><br/>
                                 <li>
-                                    {{ $shippingAddress->address1 }},<br/> {{ $shippingAddress->state }}
+                                    {{ $shippingAddress->address1 }},<br/>
                                 </li><br/>
+
                                 <li>
-                                    {{ core()->country_name($shippingAddress->country) }} {{ $shippingAddress->postcode }}
-                                </li><br/>
+                                    {{ $shippingAddress->postcode . " " . $shippingAddress->city }}
+                                </li><br />
+
+                                <li>
+                                    {{ $shippingAddress->state }}
+                                </li><br />
+
+                                <li>
+                                    {{ core()->country_name($shippingAddress->country) }}
+                                </li><br />
 
                                 <li>
                                     {{ __('shop::app.checkout.onepage.contact') }} : {{ $shippingAddress->phone }}
@@ -72,8 +96,8 @@
                     @endphp
 
                     <div class="row col-12 no-padding">
-                        <div class="col-2 max-sm-img-dimention">
-                            <img src="{{ $productBaseImage['medium_image_url'] }}" />
+                        <div class="col-2 max-sm-img-dimension">
+                            <img src="{{ $productBaseImage['medium_image_url'] }}" alt="" />
                         </div>
 
                         <div class="col-10 no-padding fs16">
@@ -135,11 +159,10 @@
                             <div class="text">
                                 <h4 class="fw6 fs18">
                                     {{ core()->currency($cart->selected_shipping_rate->base_price) }}
-                                    {{ $cart->selected_shipping_rate->method_title }}
                                 </h4>
 
                                 <div class="info">
-                                    {{ __('shop::app.customer.account.order.view.shipping-method') }}
+                                    {{ $cart->selected_shipping_rate->method_title }}
                                 </div>
                             </div>
                         </div>

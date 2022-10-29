@@ -7,6 +7,7 @@ import fa from 'vee-validate/dist/locale/fa';
 import fr from 'vee-validate/dist/locale/fr';
 import nl from 'vee-validate/dist/locale/nl';
 import tr from 'vee-validate/dist/locale/tr';
+import es from 'vee-validate/dist/locale/es';
 import hi_IN from 'vee-validate/dist/locale/hi';
 import zh_CN from 'vee-validate/dist/locale/zh_CN';
 import axios from 'axios';
@@ -32,6 +33,7 @@ Vue.use(VeeValidate, {
 		fr: fr,
 		nl: nl,
 		tr: tr,
+        es: es,
         hi_IN: hi_IN,
         zh_CN: zh_CN
     },

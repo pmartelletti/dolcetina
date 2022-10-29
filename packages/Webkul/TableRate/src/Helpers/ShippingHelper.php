@@ -211,6 +211,7 @@ class ShippingHelper
             ->addSelect('tablerate_supersets.name', 'tablerate_supersets.code')
             ->leftJoin('tablerate_supersets', 'tablerate_shipping_rates.tablerate_superset_id', 'tablerate_supersets.id')
             ->where('tablerate_supersets.status', 1)
+            ->where('tablerate_shipping_rates.country', $shippingAddress->country)
             ->orderBy('tablerate_shipping_rates.created_at')
             ->get();
 

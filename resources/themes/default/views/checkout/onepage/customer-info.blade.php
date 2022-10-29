@@ -654,7 +654,7 @@
                     type="text"
                     name="shipping[phone]"
                     v-model="address.shipping.phone"
-                    v-validate="'required|numeric'"
+                    v-validate="'required'"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;"/>
 
                 <span

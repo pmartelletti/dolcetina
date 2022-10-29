@@ -49,11 +49,11 @@ class ShippingRateRepository extends Repository
                             ]);
                     });
                 }
-                
+
                 if ( isset($data['is_zip_range']) && $data['is_zip_range'] && isset($data['zip_code']) ) {
                     $qb->where('tablerate_shipping_rates.zip_code', $data['zip_code']);
                 }
-                
+
                 if ( isset($data['country']) && $data['country'] ) {
                     $qb->where('tablerate_shipping_rates.country', $data['country']);
                 }
@@ -61,10 +61,10 @@ class ShippingRateRepository extends Repository
                 if ( isset($data['shipping_rate_id']) && $data['shipping_rate_id'] ) {
                     $qb->where('tablerate_shipping_rates.id', '!=', $data['shipping_rate_id']);
                 }
-                
+
             return $qb->groupBy('tablerate_shipping_rates.id');
         })->paginate(isset($data['limit']) ? $data['limit'] : 9);
-        
+
         return $results;
     }
 }

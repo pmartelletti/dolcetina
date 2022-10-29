@@ -23,6 +23,6 @@ class Medium implements FilterInterface
             $constraint->aspectRatio();
         });
 
-        return $image->resizeCanvas($width, $height, 'center', false, '#fff');
+        return $image->resizeCanvas($width, $height, 'center', false);
     }
 }

@@ -593,6 +593,7 @@ return [
             'password'            => 'Contraseña',
             'login-exist-message' => 'Ya tienes una cuenta con nosotros, inicia sesión o continúa como invitado .',
             'enter-coupon-code'   => 'Introduce el Código de Cupón',
+            'no-shipping-method' => 'Lamentablemente, por el momento no hacemos envios al codigo postal seleccionado.',
         ],
 
         'total' => [

@@ -221,12 +221,14 @@ class Grouped extends AbstractType
         // check if all the products are in stock
         /** @var ProductGroupedProduct $product */
         foreach ($products as $product) {
-            if (! $product->associated_product->haveSufficientQuantity($data['quantity'])) {
+            if (! $product->associated_product->haveSufficientQuantity($data['quantity'] * $product['qty'])) {
                 return trans('shop::app.checkout.cart.quantity.inventory_warning');
             }
         }
 
-        $productsWeight = $products->reduce(fn($sum, $product) => ($product->associated_product->weight ?? 0) + $sum, 0);
+        // this is the sum of the weight of all ordered products
+        // eg, 6 chocolinas + 1 ddl
+        $productsWeight = $products->reduce(fn($sum, $product) => ($product->associated_product->weight * $product->qty ?? 0) + $sum, 0);
 
         $price = $this->getFinalPrice();
 

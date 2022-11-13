@@ -2,28 +2,28 @@
     <div class="footer-content">
         <div class="footer-list-container">
 
-            <?php
-                $categories = [];
+{{--            <?php--}}
+{{--                $categories = [];--}}
 
-                foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category){
-                    if ($category->slug)
-                        array_push($categories, $category);
-                }
-            ?>
+{{--                foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category){--}}
+{{--                    if ($category->slug)--}}
+{{--                        array_push($categories, $category);--}}
+{{--                }--}}
+{{--            ?>--}}
 
-            @if (count($categories))
-                <div class="list-container">
-                    <span class="list-heading">Categories</span>
+{{--            @if (count($categories))--}}
+{{--                <div class="list-container">--}}
+{{--                    <span class="list-heading">Categories</span>--}}
 
-                    <ul class="list-group">
-                        @foreach ($categories as $key => $category)
-                            <li>
-                                <a href="{{ route('shop.productOrCategory.index', $category->slug) }}">{{ $category->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+{{--                    <ul class="list-group">--}}
+{{--                        @foreach ($categories as $key => $category)--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('shop.productOrCategory.index', $category->slug) }}">{{ $category->name }}</a>--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            @endif--}}
 
             {!! DbView::make(core()->getCurrentChannel())->field('footer_content')->render() !!}
 
@@ -33,7 +33,7 @@
                     <div class="form-container">
                         <form action="{{ route('shop.subscribe') }}">
                             <div class="control-group" :class="[errors.has('subscriber_email') ? 'has-error' : '']">
-                                <input type="email" id="subscribe-field" class="control subscribe-field" name="subscriber_email" placeholder="Email Address" required><br/>
+                                <input type="email" id="subscribe-field" class="control subscribe-field" name="subscriber_email" placeholder="{{ __('shop::app.customer.login-form.email')}}" required><br/>
 
                                 <button class="btn btn-md btn-primary">{{ __('shop::app.subscription.subscribe') }}</button>
                             </div>

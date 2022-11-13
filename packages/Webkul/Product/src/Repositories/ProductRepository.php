@@ -498,6 +498,9 @@ class ProductRepository extends Repository
 
                         foreach (array_map('trim', $queries) as $value) {
                             $subQuery->orWhere('product_flat.name', 'like', '%' . urldecode($value) . '%')
+                                ->orWhere('product_flat.description', 'like', '%' . urldecode($value) . '%')
+                                ->orWhere('product_flat.brand_label', 'like', '%' . urldecode($value) . '%')
+                                ->orWhere('product_flat.sku', 'like', '%' . urldecode($value) . '%')
                                 ->orWhere('product_flat.short_description', 'like', '%' . urldecode($value) . '%');
                         }
                     })

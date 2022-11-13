@@ -19,6 +19,10 @@
             v-text="errors.first('address-form.shipping[first_name]')"
             v-if="errors.has('address-form.shipping[first_name]')">
         </span>
+
+        <span style="display: block; color: grey">
+            {{ __('shop::app.checkout.onepage.name-help') }}
+        </span>
     </div>
 
     <div :class="`col-12 form-field ${errors.has('address-form.shipping[last_name]') ? 'has-error' : ''}`">
@@ -79,6 +83,10 @@
             v-validate="'required'"
             data-vv-as="&quot;{{ __('shop::app.checkout.onepage.address1') }}&quot;"
             @change="validateForm('address-form')" />
+
+        <span style="display: block; color: grey">
+            {{ __('shop::app.checkout.onepage.address-help') }}
+        </span>
 
         <span
             class="control-error"
@@ -239,6 +247,10 @@
             v-validate="'required|numeric'"
             data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;"
             @change="validateForm('address-form')" />
+
+        <span style="display: block; color: grey">
+            {{ __('shop::app.checkout.onepage.phone-help') }}
+        </span>
 
         <span
             class="control-error"

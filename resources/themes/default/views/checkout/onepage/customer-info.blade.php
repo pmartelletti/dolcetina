@@ -122,6 +122,10 @@
                 v-model="address.billing.company_name"
                 data-vv-as="&quot;{{ __('shop::app.checkout.onepage.company-name') }}&quot;"/>
 
+            <span style="display: block; color: grey">
+                {{ __('shop::app.checkout.onepage.name-help') }}
+            </span>
+
             <span
                 class="control-error"
                 v-text="errors.first('address-form.billing[company_name]')"
@@ -184,6 +188,10 @@
                 v-model="address.billing.address1[0]"
                 v-validate="'required'"
                 data-vv-as="&quot;{{ __('shop::app.checkout.onepage.address1') }}&quot;"/>
+
+            <span style="display: block; color: grey">
+            {{ __('shop::app.checkout.onepage.address-help') }}
+        </span>
 
             <span
                 class="control-error"
@@ -322,6 +330,10 @@
                 v-validate="'required'"
                 v-model="address.billing.phone"
                 data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;"/>
+
+            <span style="display: block; color: grey">
+            {{ __('shop::app.checkout.onepage.phone-help') }}
+        </span>
 
             <span
                 class="control-error"

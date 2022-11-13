@@ -467,6 +467,10 @@
                     v-validate="'required'"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.first-name') }}&quot;"/>
 
+                <span style="display: block; color: grey">
+                    {{ __('shop::app.checkout.onepage.name-help') }}
+                </span>
+
                 <span
                     class="control-error"
                     v-text="errors.first('address-form.shipping[first_name]')"
@@ -529,6 +533,10 @@
                     v-model="address.shipping.address1[0]"
                     v-validate="'required'"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.address1') }}&quot;"/>
+
+                <span style="display: block; color: grey">
+                    {{ __('shop::app.checkout.onepage.address-help') }}
+                </span>
 
                 <span
                     class="control-error"
@@ -668,6 +676,10 @@
                     v-model="address.shipping.phone"
                     v-validate="'required|numeric'"
                     data-vv-as="&quot;{{ __('shop::app.checkout.onepage.phone') }}&quot;"/>
+
+                <span style="display: block; color: grey">
+            {{ __('shop::app.checkout.onepage.phone-help') }}
+        </span>
 
                 <span
                     class="control-error"

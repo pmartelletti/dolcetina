@@ -139,7 +139,7 @@ class Grouped extends AbstractType
 
             $groupOptionProductMinimalPrice = $groupOptionProductTypeInstance->getMinimalPrice();
 
-            $minPrices[] = $groupOptionProductTypeInstance->evaluatePrice($groupOptionProductMinimalPrice);
+            $minPrices[] = $groupOptionProductTypeInstance->evaluatePrice($groupOptionProductMinimalPrice) * $groupOptionProduct->qty;
         }
         $sumPrices = array_sum($minPrices);
 

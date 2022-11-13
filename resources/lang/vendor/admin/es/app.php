@@ -543,7 +543,7 @@ return [
                 'booking'                       => 'mendo',
                 'bundle'                        => 'pakaĵo',
                 'downloadable'                  => 'elŝutebla',
-                'grouped'                       => 'grupigitaj',
+                'grouped'                       => 'Bundle',
                 'virtual'                       => 'virtuala',
                 'configurable'                  => 'agordebla',
 

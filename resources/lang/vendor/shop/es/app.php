@@ -50,7 +50,7 @@ return [
     ],
 
     'footer' => [
-        'subscribe-newsletter' => 'Suscribirse a la newsletter',
+        'subscribe-newsletter' => 'Recibí noticias y ofertas de Dolcentina',
         'subscribe'            => 'Suscríbete',
         'locale'               => 'Idioma',
         'currency'             => 'Moneda',

@@ -206,14 +206,16 @@ class ShippingHelper
         $cart               = Cart::getCart();
         $shippingAddress    = $cart->shipping_address;
 
-        $shippingRates = $this->shippingRateRepository->getModel()
+        $query = $this->shippingRateRepository->getModel()
             ->addSelect('tablerate_shipping_rates.*')
             ->addSelect('tablerate_supersets.name', 'tablerate_supersets.code')
             ->leftJoin('tablerate_supersets', 'tablerate_shipping_rates.tablerate_superset_id', 'tablerate_supersets.id')
             ->where('tablerate_supersets.status', 1)
-            ->where('tablerate_shipping_rates.country', $shippingAddress->country)
-            ->orderBy('tablerate_shipping_rates.created_at')
-            ->get();
+            ->orderBy('tablerate_shipping_rates.created_at');
+        if ($shippingAddress != null) {
+            $query->where('tablerate_shipping_rates.country', $shippingAddress->country);
+        }
+        $shippingRates = $query->get();
 
 
         // we might want to show the "SuperSet rates" here, but based on weight instead of price.

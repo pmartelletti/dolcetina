@@ -592,10 +592,8 @@ return [
     'password'            => 'Password',
     'login-exist-message' => 'Sei già registrato nel nostro negozio online, effettua la login o continua come ospite.',
     'enter-coupon-code'   => 'Inserisci Codice Sconto',
-            'no-shipping-method' => 'Ops! Che peccato. Per qualche motivo non siamo riusciti a trovare il tuo codice postale. Non preoccuparti! Contattaci per risolverlo insieme. Potrebbe succedere perché non spediamo nel paese che hai selezionato o anche perché il nostro sito è ancora in fase di sviluppo e il codice postale che hai inserito semplicemente non viene visualizzato. ',
-            'name-help'           => 'Nel caso il nome sul campanello è diverso del tuo nome o quello del destinatario, segnalacelo per favore.',
-            'address-help'       => 'Specifica se la strada è una via, viale, piazza, piazzale, vicolo, ecc. Il piano e il numero del interno.',
-            'phone-help'         => 'Sempre che sia possibile, compila questo campo con un numero di telefono italiano.',
+    'no-shipping-method' => 'Ops! Il nostro sito non è riuscito ad identificare il tuo cap. Non preoccuparti!',
+    'no-shipping-method-link' => 'Mettiti in contatto con noi per risolverlo insieme!',
 ],
 
         'total' => [
@@ -629,9 +627,9 @@ return [
     'order' => [
         'subject'           => 'Nuova Conferma Ordine',
         'heading'           => 'Conferma Ordine!',
-        'dear'              => 'Ciao :customer_name',
+        'dear'              => 'Ciao :customer_name!!',
         'dear-admin'        => ':admin_name',
-        'greeting'          => 'Grazie per il tuo Oridne :order_id su :created_at',
+        'greeting'          => 'Grazie per il tuo ordine :order_id del :created_at',
         'greeting-admin'    => 'Id Ordine :order_id su :created_at',
         'summary'           => 'Riepilogo Ordine',
         'shipping-address'  => 'Indirizzo Spedizione',
@@ -662,10 +660,10 @@ return [
             'subject'           => 'Conferma Cancellazione Ordine',
             'heading'           => 'Ordine Cancellato',
             'dear'              => ':customer_name',
-            'greeting'          => 'Il tuo Ordine #:order_id su :created_at è stato cancellato',
+            'greeting'          => 'Il tuo Ordine #:order_id del :created_at è stato cancellato',
             'summary'           => 'Riepilogo Ordine',
             'shipping-address'  => 'Indirizzo di Spedizione',
-            'billing-address'   => 'Indirizzo di Fattuazione',
+            'billing-address'   => 'Indirizzo di Fatturazione',
             'contact'           => 'Contatti',
             'shipping'          => 'Metodo di Spedizione',
             'payment'           => 'Metodo di Pagamento',
@@ -688,7 +686,7 @@ return [
             'subject'                                          => 'Ricordatorio della fattura',
             'your-invoice-is-overdue'                          => 'La fattura :invoice scade fra :time.',
             'please-make-your-payment-as-soon-as-possible'     => 'Per favore, effete il pagamento il prima possibile.',
-            'if-you-ve-already-paid-just-disregard-this-email' => 'Se l\'hai già effectuato, per favore ignora questa mail.',
+            'if-you-ve-already-paid-just-disregard-this-email' => 'Se l\'hai già effettuato, per favore ignora questa mail.',
             ],
         ],
 
@@ -713,7 +711,7 @@ return [
 
         'forget-password' => [
     'subject'        => 'Generazione Nuova Password',
-    'dear'           => ':name',
+    'dear'           => 'Ciao :name!',
     'info'           => 'Ricevi questa email perché abbiamo ricevuto una richiesta di generazione di nuova password per il tuo account',
     'reset-password' => 'Generazione nuova Password',
     'final-summary'  => 'Se non hai inviato tu questa richiesta, non è necessario effettuare alcuna operazione',
@@ -722,14 +720,14 @@ return [
 
         'update-password' => [
     'subject' => 'Password aggiornata',
-    'dear'    => 'Ciao :name',
+    'dear'    => 'Ciao :name!',
     'info'    => 'Ricevi questa email perché hai aggiornato la password.',
     'thanks'  => 'Grazie!',
 ],
 
         'customer' => [
     'new' => [
-        'dear'           => 'Gentile :customer_name',
+        'dear'           => 'Ciao :customer_name!!',
         'username-email' => 'UserName/Email',
         'subject'        => 'Nuova registrazione cliente',
         'password'       => 'Password',

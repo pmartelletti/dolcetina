@@ -38,7 +38,7 @@
                     {!! view_render_event('bagisto.shop.checkout.shipping-method.after', ['rateGroup' => $rateGroup]) !!}
                 @empty
                     <div class="no-result mb-20">
-                        {{ __('shop::app.checkout.onepage.no-shipping-method') }}
+                        {{ __('shop::app.checkout.onepage.no-shipping-method') }}. <a href="https://wa.link/8w58p0" target="_blank">{{ __('shop::app.checkout.onepage.no-shipping-method-link') }}</a>
                     </div>
                 @endforelse
 

@@ -50,7 +50,7 @@ return [
     ],
 
     'footer' => [
-        'subscribe-newsletter' => 'Suscribirse a la newsletter',
+        'subscribe-newsletter' => 'Recibí noticias y ofertas de Dolcentina',
         'subscribe'            => 'Suscríbete',
         'locale'               => 'Idioma',
         'currency'             => 'Moneda',
@@ -244,7 +244,7 @@ return [
                     'title'          => 'Añadir dirección',
                     'street-address' => 'Calle',
                     'country'        => 'País',
-                    'state'          => 'Estado',
+                    'state'          => 'Provincia',
                     'select-state'   => 'Selecciona una región, estado o provincia',
                     'city'           => 'Ciudad',
                     'postcode'       => 'Código postal',
@@ -557,7 +557,7 @@ return [
         'email'               => 'Correo electrónico',
         'address1'            => 'Calle',
         'city'                => 'Ciudad',
-        'state'               => 'Estado',
+        'state'               => 'Provincia',
         'select-state'        => 'Selecciona una región, estado o provincia',
         'postcode'            => 'Código postal',
         'phone'               => 'Teléfono',
@@ -594,8 +594,11 @@ return [
         'login-exist-message' => '¡Qué bueno! Parece que ya tienes una cuenta con nosotros. Inicia sesión para seguir con tus datos o continúa como invitado.',
         'enter-coupon-code'   => 'Introduce el Código de descuento',
         'no-shipping-method' => '¡Ups! Qué pena. Por alguna razón no encontramos tu código postal. ¡No te preocupes!',
-'no-shipping-method-link' => 'Ponete en contacto con nosotros para resolverlo juntos.',
-        ],
+        'no-shipping-method-link' => 'Ponete en contacto con nosotros para resolverlo juntos.',
+        'name-help'           => 'Si tu nombre o el del destinatario es diferente al del timbre, te pedimos que lo especifiques.',
+        'address-help'       => 'Especifica, por favor, si se trata de una Via, Viale, Piazza, Piazzale, Vicolo, etc. El piso y número de departamento.',
+        'phone-help'         => 'Siempre que sea posible, completá este ítem con un teléfono italiano.',
+    ],
 
 
         'total' => [

@@ -697,13 +697,18 @@ class Cart
         $mappedProducts = $products->map(function (ProductGroupedProduct $product) use ($data) {
             /** @var Product $originalProduct */
             $originalProduct = $product->associated_product;
+            $cartData = $originalProduct->getTypeInstance()->prepareForCart([
+                'quantity' => $data['quantity'],
+                'product_id' => $originalProduct->id
+            ])[0];
             return array_merge(
-                $data,
-                $originalProduct->getTypeInstance()->prepareForCart([
-                    'quantity' => $data['quantity'],
-                    'product_id' => $originalProduct->id
-                ])[0],
-                ['product' => $originalProduct, 'qty_ordered' => $data['quantity']]
+                $data, $cartData,
+                [
+                    'product' => $originalProduct,
+                    'qty_ordered' => $data['quantity'] * $product->qty,
+                    'base_total' => $cartData['base_total'] * $product->qty,
+                    'total' => $cartData['total'] * $product->qty,
+                ]
             );
 
         });

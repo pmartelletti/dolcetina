@@ -594,6 +594,9 @@ return [
     'enter-coupon-code'   => 'Inserisci Codice Sconto',
     'no-shipping-method' => 'Ops! Il nostro sito non è riuscito ad identificare il tuo cap. Non preoccuparti!',
     'no-shipping-method-link' => 'Mettiti in contatto con noi per risolverlo insieme!',
+            'name-help'           => 'Nel caso il nome sul campanello è diverso del tuo nome o quello del destinatario, segnalacelo per favore.',
+            'address-help'       => 'Specifica se la strada è una via, viale, piazza, piazzale, vicolo, ecc. Il piano e il numero del interno.',
+            'phone-help'         => 'Sempre che sia possibile, compila questo campo con un numero di telefono italiano.',
 ],
 
         'total' => [

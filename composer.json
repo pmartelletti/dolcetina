@@ -8,7 +8,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=8.0.2 < 8.1",
+        "php": "^8.0.2",
         "astrotomic/laravel-translatable": "^11.0.0",
         "bagisto/bagisto-bulk-upload": "dev-master",
         "bagisto/bagisto-package-generator": "dev-master",
@@ -41,8 +41,8 @@
         "pusher/pusher-php-server": "^7.0",
         "spatie/laravel-ignition": "^1.0",
         "spatie/laravel-sitemap": "^6.1",
-        "symfony/http-client": "^6.0",
-        "symfony/mailgun-mailer": "^6.0",
+        "symfony/http-client": "^6.1",
+        "symfony/mailgun-mailer": "^6.1",
         "wontonee/stripe": "^1.0"
     },
     "require-dev": {

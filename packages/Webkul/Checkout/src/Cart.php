@@ -614,6 +614,8 @@ class Cart
     {
         $data = $this->toArray();
 
+        // subtotal: sum of the subtotal of all data['items']
+
         $finalData = [
             'cart_id'               => $this->getCart()->id,
             'customer_id'           => $data['customer_id'],
@@ -664,11 +666,6 @@ class Cart
                     $finalData['items'],
                     $productsData
                 );
-                // apply the discount
-                $discount = collect($productsData)->sum('discount_amount');
-                $finalData['discount_amount'] += $discount;
-                $finalData['base_discount_amount'] += $discount;
-
             } else {
                 $finalData['items'][] = $this->prepareDataForOrderItem($item);
             }
@@ -677,6 +674,15 @@ class Cart
         if ($finalData['payment']['method'] === 'paypal_smart_button') {
             $finalData['payment']['additional'] = request()->get('orderData');
         }
+
+        // override subtotals and discounts so they match properly
+        $subtotal = collect($finalData['items'])->sum('total');
+        $finalData['sub_total'] = $subtotal;
+        $finalData['base_sub_total'] = $subtotal;
+        $finalDiscount = round(collect($finalData['items'])->sum('discount_amount'), 2);
+        $calculatedTotal = $subtotal + $finalData['shipping_amount'] + $finalData['tax_amount'] - $finalDiscount;
+        $finalData['discount_amount'] = $finalDiscount - ($finalData['grand_total'] - $calculatedTotal);
+        $finalData['base_discount_amount'] = $finalDiscount - ($finalData['grand_total'] - $calculatedTotal);
 
         return $finalData;
     }
@@ -689,7 +695,6 @@ class Cart
      */
     public function prepareDataForOrderGroupedItem($data) : array
     {
-
         /** @var Collection $products */
         $products = app(ProductGroupedProductRepository::class)
             ->findWhere(['product_id' => $data['product_id']]);
@@ -707,13 +712,15 @@ class Cart
                     'product' => $originalProduct,
                     'qty_ordered' => $data['quantity'] * $product->qty,
                     'base_total' => $cartData['base_total'] * $product->qty,
+                    'total_weight' => $data['quantity'] * $product->qty * $originalProduct->weight,
+                    'base_total_weight' => $data['quantity'] * $product->qty * $originalProduct->weight,
                     'total' => $cartData['total'] * $product->qty,
                 ]
             );
 
         });
 
-        $discount = max(0, $mappedProducts->sum('total') - $data['total']);
+        $discount = max(0, $mappedProducts->sum('total') - $data['total']) + $data['discount_amount'];
         $proportionalDiscount = round($discount / $mappedProducts->count(), 2, PHP_ROUND_HALF_DOWN);
         $remainder = round($discount - $proportionalDiscount * $mappedProducts->count(), 2);
         $mappedProducts = $mappedProducts->toArray();

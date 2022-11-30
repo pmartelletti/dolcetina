@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Event;
 use Webkul\Core\Eloquent\Repository;
 use Webkul\Sales\Contracts\Invoice;
+use Webkul\Sales\Contracts\Order;
 use Webkul\Sales\Generators\InvoiceSequencer;
 
 class InvoiceRepository extends Repository
@@ -86,7 +87,7 @@ class InvoiceRepository extends Repository
                 $orderItem = $this->orderItemRepository->find($itemId);
 
                 if ($qty > $orderItem->qty_to_invoice) {
-                    $qty = $orderItem->qty_to_invoice;
+                    $qty = $orderItem-> qty_to_invoice;
                 }
 
                 $invoiceItem = $this->invoiceItemRepository->create([
@@ -168,6 +169,18 @@ class InvoiceRepository extends Repository
             }
 
             $this->collectTotals($invoice);
+            // update order totals
+//            $invoice->sub_total = $order->sub_total;
+//            $invoice->base_sub_total = $order->base_sub_total;
+//            $invoice->shipping_amount = $order->shipping_amount;
+//            $invoice->base_shipping_amount = $order->base_shipping_amount;
+//            $invoice->discount_amount = $order->discount_amount;
+//            $invoice->base_discount_amount = $order->base_discount_amount;
+//            $invoice->grand_total = $order->grand_total;
+//            $invoice->tax_amount = $order->tax_amount;
+//            $invoice->base_tax_amount = $order->base_tax_amount;
+//            $invoice->base_grand_total = $order->base_grand_total;
+//            $invoice->save();
 
             $this->orderRepository->collectTotals($order);
 

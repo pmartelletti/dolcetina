@@ -658,10 +658,12 @@ class Cart
             ]);
         }
 
+
         foreach ($data['items'] as $item) {
             if ($item['type'] == 'grouped') {
                  //we add the individual products, so we can keep track of stocks
                 $productsData = $this->prepareDataForOrderGroupedItem($item);
+//                dd($productsData);
                 $finalData['items'] = array_merge(
                     $finalData['items'],
                     $productsData
@@ -709,12 +711,13 @@ class Cart
             return array_merge(
                 $data, $cartData,
                 [
+                    'quantity' => $data['quantity'] * $product->qty,
                     'product' => $originalProduct,
                     'qty_ordered' => $data['quantity'] * $product->qty,
-                    'base_total' => $cartData['base_total'] * $product->qty,
+                    'base_total' => $originalProduct->price * $product->qty,
                     'total_weight' => $data['quantity'] * $product->qty * $originalProduct->weight,
                     'base_total_weight' => $data['quantity'] * $product->qty * $originalProduct->weight,
-                    'total' => $cartData['total'] * $product->qty,
+                    'total' => $originalProduct->price * $product->qty,
                 ]
             );
 

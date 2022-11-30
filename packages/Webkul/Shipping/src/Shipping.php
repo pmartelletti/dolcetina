@@ -44,8 +44,8 @@ class Shipping
 
         return [
             'jump_to_section' => 'shipping',
-            'shippingMethods' => $this->getGroupedAllShippingRates(),
-            'html'            => view('shop::checkout.onepage.shipping', ['shippingRateGroups' => $this->getGroupedAllShippingRates()])->render(),
+            'shippingMethods' => $this->getGroupedAllShippingRates($cart),
+            'html'            => view('shop::checkout.onepage.shipping', ['shippingRateGroups' => $this->getGroupedAllShippingRates($cart)])->render(),
         ];
     }
 
@@ -95,7 +95,7 @@ class Shipping
      *
      * @return void
      */
-    public function getGroupedAllShippingRates()
+    public function getGroupedAllShippingRates($cart)
     {
         $rates = [];
 
@@ -106,6 +106,7 @@ class Shipping
                     'rates'         => []
                 ];
             }
+            $rate->applyDiscount($cart);
 
             $rates[$rate->carrier]['rates'][] = $rate;
         }

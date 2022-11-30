@@ -27,4 +27,18 @@ class CartShippingRate extends Model implements CartShippingRateContract
         return $this->belongsTo(CartAddressProxy::modelClass(), 'cart_address_id')
             ->where('address_type', CartAddress::ADDRESS_TYPE_SHIPPING);
     }
+
+    public function applyDiscount(Cart $cart)
+    {
+        $helper = app('Webkul\CartRule\Helpers\CartRule');
+        if (!$helper->cartAppliesForFreeShipping($cart)) {
+            return;
+        }
+        $this->price = 0;
+    }
+
+    public function discounted() : bool
+    {
+        return $this->price < $this->base_price;
+    }
 }

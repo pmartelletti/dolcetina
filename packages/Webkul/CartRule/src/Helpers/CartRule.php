@@ -432,6 +432,25 @@ class CartRule
         $cart->save();
     }
 
+    public function cartAppliesForFreeShipping($cart): bool
+    {
+        $applies = false;
+        foreach ($this->getCartRules() as $rule) {
+            if (! $this->canProcessRule($cart, $rule)) {
+                continue;
+            }
+            if (! $this->validator->validate($rule, $cart)) {
+                continue;
+            }
+            if (! $rule || ! $rule->free_shipping) {
+                continue;
+            }
+            $applies = true;
+            break;
+        }
+        return $applies;
+    }
+
     /**
      * Calculate cart item totals for each rule
      *

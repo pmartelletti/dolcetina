@@ -7,7 +7,6 @@
         <div class="shipping-methods">
 
             <div class="control-group" :class="[errors.has('shipping-form.shipping_method') ? 'has-error' : '']">
-
                 @forelse ($shippingRateGroups as $rateGroup)
                     {!! view_render_event('bagisto.shop.checkout.shipping-method.before', ['rateGroup' => $rateGroup]) !!}
 
@@ -23,7 +22,12 @@
                                     <span class="checkmark"></span>
                                 </label>
                                 {{-- <label class="radio-view" for="{{ $rate->method }}"></label> --}}
+                                @if ($rate->discounted())
+                                <b class="ship-rate method-label" style="text-decoration: line-through">{{ core()->currency($rate->base_price) }}</b>
+                                <b class="ship-rate method-label" style="margin-left: 8px">{{ core()->currency($rate->price) }}</b>
+                                @else
                                 <b class="ship-rate method-label">{{ core()->currency($rate->base_price) }}</b>
+                                @endif
                             </div>
 
                             <div class="line-two mt-5">

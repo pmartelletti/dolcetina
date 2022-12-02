@@ -129,7 +129,7 @@ class Grouped extends AbstractType
      */
     public function getMinimalPrice($qty = null)
     {
-        $groupPrice = $this->haveSpecialPrice($qty) ? $this->product->special_price : $this->product->price;
+        $groupPrice = $this->product->price;
         // we check if the sum of the products is less than the groupPrice, just in case one item is reduced
 
         $minPrices = [];
@@ -172,6 +172,7 @@ class Grouped extends AbstractType
      */
     public function haveSpecialPrice($qty = null)
     {
+        return false;
         $haveSpecialPrice = false;
 
         foreach ($this->product->grouped_products as $groupOptionProduct) {

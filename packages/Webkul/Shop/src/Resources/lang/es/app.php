@@ -447,7 +447,7 @@ return [
     'reviews-title'            => 'Calificación y opiniones',
     'write-review-btn'         => 'Escribe una opinión',
     'choose-option'            => 'Elige una opción',
-    'sale'                     => 'En venta',
+    'sale'                     => 'Oferta',
     'new'                      => 'Nuevo',
     'empty'                    => 'No hay productos disponibles en esta categoría',
     'add-to-cart'              => 'Agregar al carrito',

@@ -714,10 +714,10 @@ class Cart
                     'quantity' => $data['quantity'] * $product->qty,
                     'product' => $originalProduct,
                     'qty_ordered' => $data['quantity'] * $product->qty,
-                    'base_total' => $originalProduct->getTypeInstance()->getMinimalPrice() * $product->qty,
+                    'base_total' => $originalProduct->getTypeInstance()->getMinimalPrice() * $product->qty * $data['quantity'],
                     'total_weight' => $data['quantity'] * $product->qty * $originalProduct->weight,
                     'base_total_weight' => $data['quantity'] * $product->qty * $originalProduct->weight,
-                    'total' => $originalProduct->getTypeInstance()->getMinimalPrice() * $product->qty,
+                    'total' => $originalProduct->getTypeInstance()->getMinimalPrice() * $product->qty * $data['quantity'],
                 ]
             );
 
